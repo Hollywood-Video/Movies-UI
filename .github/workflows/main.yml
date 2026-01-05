@@ -17,6 +17,9 @@ jobs:
       - name: 🔨 Install
         run: npm install --prefer-offline=false --no-fund
 
+      - name: 🔐 Get Secrets
+        run: cp /home/felipe/secrets/cinedex-ui/secrets .env.production
+
       - name: 🏭 Build project
         run: npm run build
 
