@@ -9,8 +9,12 @@ export default defineConfig(({ mode }) => {
     // `VITE_` prefix.
     const env = loadEnv(mode, process.cwd(), '');
 
+    console.log('mode:', mode);
+    console.log('VITE_SOURCE_MAP:', env.VITE_SOURCE_MAP);
+
     const basePath = env.VITE_BASE_PATH ?? './';
     const sourcemap = /^true$/i.test(env.VITE_SOURCE_MAP ?? 'false');
+    console.log('sourcemap:', sourcemap);
 
     return {
         plugins: [react()],

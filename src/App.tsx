@@ -1,21 +1,16 @@
-import { useEffect } from 'react';
-import { API_BASE_URL } from './services/AppSettings.ts'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from "./Pages/LandingPage.tsx";
+import NotFoundPage from "./Pages/NotFoundPage.tsx";
 
 const App = () => {
-
-    useEffect(() => {
-        fetch(`${API_BASE_URL}/movies`)
-            .then((response) => response.json())
-            .then(data  => {
-                console.log("Movies data:", data);
-            })
-            .catch(error => {
-                console.error("Error fetching movies data:", error);
-            });
-    }, []);
-
-  return <LandingPage/>
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App
