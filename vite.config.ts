@@ -10,17 +10,17 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), '');
 
     const basePath = env.VITE_BASE_PATH ?? './';
-    console.log('basePath', basePath);
+    const sourcemap = /^true$/i.test(env.VITE_SOURCE_MAP ?? 'false');
 
     return {
         plugins: [react()],
         base: basePath,
         build: {
-            sourcemap: false,
+            sourcemap: sourcemap,
         },
         server: {
             port: 3_000,
-            open: true
+            open: true,
         },
         preview: {
             port: 3_000,
@@ -30,4 +30,4 @@ export default defineConfig(({ mode }) => {
             __API_BASE_URL__: JSON.stringify(env.VITE_API_BASE_URL),
         },
     }
-})
+});
