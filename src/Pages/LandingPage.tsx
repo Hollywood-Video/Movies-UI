@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { API_BASE_URL } from '../services/AppSettings.ts'
 import "./Cinedex.css";
 
-const LandingPage: FC = () => {
+export const LandingPage: FC = () => {
     useEffect(() => {
         fetch(`${API_BASE_URL}/movies`)
             .then((response) => response.json())
@@ -40,5 +40,3 @@ const LandingPage: FC = () => {
         </main>
     );
 };
-
-export default LandingPage;

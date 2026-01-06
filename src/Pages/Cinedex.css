@@ -9,49 +9,105 @@
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Ubuntu, sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #ffffff;
+    background: #020507;
+    color: #cbcbcb;
     min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #cbcbcb, transparent),
+        radial-gradient(2px 2px at 60px 70px, #8b6646, transparent),
+        radial-gradient(1px 1px at 50px 50px, #344c6f, transparent),
+        radial-gradient(1px 1px at 130px 80px, #cbcbcb, transparent),
+        radial-gradient(2px 2px at 90px 10px, #8b6646, transparent),
+        radial-gradient(1px 1px at 180px 50px, #cbcbcb, transparent),
+        radial-gradient(1px 1px at 110px 120px, #344c6f, transparent),
+        radial-gradient(2px 2px at 40px 100px, #cbcbcb, transparent),
+        radial-gradient(1px 1px at 150px 30px, #8b6646, transparent),
+        radial-gradient(1px 1px at 200px 90px, #cbcbcb, transparent);
+    background-size: 200px 200px;
+    background-repeat: repeat;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(139, 102, 70, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(52, 76, 111, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* Layout */
 .landing {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
 }
 
 .hero {
     flex: 1;
-    padding: 3rem 1.5rem;
+    padding: 2rem 1.5rem;
     max-width: 720px;
     margin: auto;
     text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 
 /* Typography */
 .title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #cbcbcb, #8b6646);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .tagline {
-    font-size: 1.25rem;
-    margin-top: 1rem;
+    font-size: 1.125rem;
+    margin-top: 0.75rem;
     opacity: 0.9;
+    color: #8b6646;
 }
 
 .description {
-    margin-top: 1.5rem;
+    margin-top: 1.25rem;
     line-height: 1.6;
     opacity: 0.85;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Actions */
 .actions {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     display: flex;
     gap: 1rem;
     justify-content: center;
@@ -61,26 +117,31 @@ body {
 button {
     padding: 0.75rem 1.75rem;
     font-size: 1rem;
-    border-radius: 999px;
+    border-radius: 4px;
     border: none;
     cursor: pointer;
-    transition: transform 0.15s ease, opacity 0.15s ease;
-}
-
-button:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    position: relative;
 }
 
 .primary {
-    background: #ff4d4d;
-    color: #fff;
+    background: #8b6646;
+    color: #cbcbcb;
+}
+
+.primary:hover {
+    background: #9d7350;
 }
 
 .secondary {
     background: transparent;
-    border: 1px solid #ffffff55;
-    color: #fff;
+    border: 1px solid #344c6f;
+    color: #cbcbcb;
+}
+
+.secondary:hover {
+    border-color: #8b6646;
+    color: #8b6646;
 }
 
 /* Footer */
