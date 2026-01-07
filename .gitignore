@@ -15,6 +15,9 @@ dist-ssr
 # TanStack Router
 src/routeTree.gen.ts
 
+# Test coverage
+coverage/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
